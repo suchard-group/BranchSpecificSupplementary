@@ -10,6 +10,7 @@ We provide two ways for users to setup software to reproduce our results.
 2. Global installation
 
 	Please kindly refer to the section `Global installation` if you'd like to install BEAST and BEAGLE gloably which could potentially interfere with your other BEAST installations.
+
 You could find a separate `Reproducing the analyses` section under each installation method to follow.
 
 ### Docker image
@@ -46,26 +47,26 @@ To run each of the analysis, please use the corresponding command below in the i
 	* HMC
 
 	```
-	beast -force_resume -load_state xmls/BRCA1/BRCA1_hmc_save -overwrite xmls/BRCA1/BRCA1_shrinkage_fixedRates_HMC.xml
+	beast -load_state xmls/BRCA1/BRCA1_hmc_save -overwrite xmls/BRCA1/BRCA1_shrinkage_fixedRates_HMC.xml
 	```
 
 	* Univariable
 
 	```
-	beast -force_resume -load_state xmls/BRCA1/BRCA1_serial_save -overwrite xmls/BRCA1/BRCA1_shrinkage_fixedRates_Serial.xml
+	beast -load_state xmls/BRCA1/BRCA1_serial_save -overwrite xmls/BRCA1/BRCA1_shrinkage_fixedRates_Serial.xml
 	```
 
 * Optimization
 	* Analytic
 
 	```
-	beast -force_resume -load_state xmls/BRCA1/BRCA1_hmc_save -overwrite xmls/BRCA1/BRCA1_shrinkage_fixedRates_MLE_analytic.xml
+	beast -load_state xmls/BRCA1/BRCA1_hmc_save -overwrite xmls/BRCA1/BRCA1_shrinkage_fixedRates_MLE_analytic.xml
 	```
 
 	* Numeric
 
 	```
-	beast -force_resume -load_state xmls/BRCA1/BRCA1_hmc_save -overwrite xmls/BRCA1/BRCA1_shrinkage_fixedRates_MLE_numeric.xml	```
+	beast -load_state xmls/BRCA1/BRCA1_hmc_save -overwrite xmls/BRCA1/BRCA1_shrinkage_fixedRates_MLE_numeric.xml	```
 
 * Full analysis
 
@@ -80,26 +81,26 @@ To run each of the analysis, please use the corresponding command below in the i
 	* HMC
 
 	```
-	beast -force_resume -load_state xmls/MPXV/apobec_HMC_save -overwrite xmls/MPXV/apobec.shrinkage_HMC.xml
+	beast -load_state xmls/MPXV/apobec_HMC_save -overwrite xmls/MPXV/apobec.shrinkage_HMC.xml
 	```
 
 	* Univariable
 
 	```
-	beast -force_resume -load_state xmls/MPXV/apobec_Serial_save -overwrite xmls/MPXV/apobec.shrinkage_Serial.xml
+	beast -load_state xmls/MPXV/apobec_Serial_save -overwrite xmls/MPXV/apobec.shrinkage_Serial.xml
 	```
 
 * Optimization
 	* Analytic
 
 	```
-	beast -force_resume -load_state xmls/MPXV/apobec_HMC_save -overwrite xmls/MPXV/apobec.shrinkage_MLE_analytic.xml
+	beast -load_state xmls/MPXV/apobec_HMC_save -overwrite xmls/MPXV/apobec.shrinkage_MLE_analytic.xml
 	```
 
 	* Numeric
 
 	```
-	beast -force_resume -load_state xmls/MPXV/apobec_HMC_save -overwrite xmls/MPXV/apobec.shrinkage_MLE_numeric.xml	```
+	beast -load_state xmls/MPXV/apobec_HMC_save -overwrite xmls/MPXV/apobec.shrinkage_MLE_numeric.xml	```
 
 * Full analysis
 
