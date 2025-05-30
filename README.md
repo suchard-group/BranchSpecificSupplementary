@@ -113,6 +113,7 @@ To run each of the analysis, please use the corresponding command below in the i
 ### Global installations
 
 ####Setting up BEAGLE
+
 Please follow the [BEAGLE installation instructions](https://github.com/beagle-dev/beagle-lib).
 But get the `hmc-clock` branch.
 
