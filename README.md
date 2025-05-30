@@ -15,14 +15,14 @@ You could find a separate `Reproducing the analyses` section under each installa
 
 ### Docker image
 We provide a docker image to streamline software setup.
-To build the docker image for `x86_64` systems (e.g., Intel/AMD chips), please run
+To build the docker image for `x86_64` systems (e.g., Intel/AMD chips), please run (e.g., in a terminal window)
 
 ```
 cd where_this_repository_is_stored
 docker build --platform x86_64 -t beast docker
 ```
 
-To build the docker image for `arm_64` systems (e.g., Apple silicon chips), please run
+To build the docker image for `arm_64` systems (e.g., Apple silicon chips), please run (e.g., in a Docker Desktop command line environment)
 
 ```
 cd where_this_repository_is_stored
