@@ -5,13 +5,13 @@ We provide two ways for users to setup software to reproduce our results.
 
 1. Docker image
 
-	Please kindly refer to the section `Docker image` if you'd like to run BEAST within docker container which is local and should not disturb your other BEAST installations.
+	Please kindly refer to the section `Docker image` if you'd like to run BEAST within a docker container which is local and should not disturb your other BEAST installations.
 
 2. Global installation
 
-	Please kindly refer to the section `Global installation` if you'd like to install BEAST and BEAGLE gloably which could potentially interfere with your other BEAST installations.
+	Please kindly refer to the section `Global installation` if you'd like to install BEAST and BEAGLE globaly which could potentially interfere with your other BEAST installations.
 
-You could find a separate `Reproducing the analyses` section under each installation method to follow.
+You can find a separate `Reproducing the analyses` section under each installation method to follow.
 
 ### Docker image
 We provide a docker image to streamline software setup.
@@ -31,7 +31,7 @@ docker build --platform ARM64 -t beast docker
 
 #### Reproducing the analyses
 
-You may use the following commands for each case of the two data sets as described in the manuscript.
+You can use the following commands to reproduce the two data examples as described in the manuscript.
 
 Let's open an interactive bash session under docker container.
 
@@ -39,7 +39,7 @@ Let's open an interactive bash session under docker container.
 docker run --mount type=bind,src="$(pwd)",target=/tmp -it beast bash
 ```
 
-To run each of the analysis, please use the corresponding command below in the interactive bash shell.
+To run each of the analyses, please use the corresponding command below in an interactive shell.
 
 #### BRCA1
 
@@ -115,7 +115,7 @@ To run each of the analysis, please use the corresponding command below in the i
 #### Setting up BEAGLE
 
 Please follow the [BEAGLE installation instructions](https://github.com/beagle-dev/beagle-lib).
-But get the `hmc-clock` branch.
+But check-out the `hmc-clock` branch.
 
 For Mac users, the following commands will compile the CPU version of BEAGLE.
 Follow the [instructions](https://github.com/beagle-dev/beagle-lib) if you need to install any other dependent software.
@@ -162,15 +162,15 @@ git checkout d6cefb0b9b985f49d121317e4c1c668faf0c5c46
 ant
 ```
 
-For Mac users, you may need to install ant by `brew install ant` through [Homebrew](https://brew.sh/).
+For Mac users, you may need to install `ant` using `brew install ant` through [Homebrew](https://brew.sh/).
 
-For Linux users, you can install ant by `sudo apt-get install ant`.
+For Linux users, you can install `ant` using `sudo apt-get install ant`.
 
 This will compile the `jar` files under `beast-mcmc/build/dist/` where you can find `beast.jar`, `beauti.jar` and `trace.jar`.
 
 #### Reproducing the analyses
 
-You may use the following commands for each case of the three data sets as described in the manuscript.
+You can use the following commands for each of the three data examples as described in the manuscript.
 
 Change your working directory to where you want to store the resulting log files first.
 
