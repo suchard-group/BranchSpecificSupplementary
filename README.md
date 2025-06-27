@@ -1,5 +1,5 @@
-# Detecting Shifts in Natural Selection with Branch-Specific Substitution Models and Shrinkage Priors
-This repository contains the instructions and files to reproduce the analyses performed in the "Detecting Shifts in Natural Selection with Branch-Specific Substitution Models and Shrinkage Priors" paper by Ji et al.
+# Detecting Evolutionary Change-Points with Branch-Specific Substitution Models and Shrinkage Priors
+This repository contains the instructions and files to reproduce the analyses performed in the "Detecting Evolutionary Change-Points with Branch-Specific Substitution Models and Shrinkage Priors" paper by Ji et al.
 
 We provide two ways for users to setup software to reproduce our results.
 
