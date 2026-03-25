@@ -283,6 +283,9 @@
 			<posterior idref="posterior"/>
 			<prior idref="prior"/>
 			<likelihood idref="likelihood"/>
+			<incrementParameter>
+				<autoCorrelatedRatesPrior idref="substBranchRatesPrior.omegas"/>
+			</incrementParameter>
 			<parameter idref="omega.rates"/>
 		</log>
 
