@@ -1,0 +1,178 @@
+---
+title: "ESS_HMC"
+author: "Xiang Ji"
+date: "04/22/2025"
+output: html_document
+---
+
+This file compares the vanilla HMC operator vs the scale operator in terms of effective sample size per unit time.
+
+```{r}
+rm(list=ls())  # clean up workspace
+library("coda")
+
+readTimer <- function(timer.file.name) {
+  time.string <- read.table(timer.file.name)
+  if (time.string[2] == "minutes") {
+    return (as.numeric(time.string[1] * 60.0))
+  } else if (time.string[2] == "hours") {
+    return (as.numeric(time.string[1] * 3600.0))
+  }
+}
+
+HMC.BRCA1.log <- read.table("BRCA1_coding_shrinkage_fixedRates.large.parameters.HMC.log", 
+                      skip=3, header = TRUE, sep = "\t")
+Serial.BRCA1.log <- read.table("BRCA1_coding_shrinkage_fixedRates.large.parameters.Serial.log", 
+                         skip = 3, header=TRUE, sep = "\t")
+
+HMC.BRCA1.timer <- readTimer("BRCA1_hmc_timer.txt")
+Serial.timer <- readTimer("BRCA1_serial_timer.txt")
+
+
+ESS.BRCA1.HMC <- effectiveSize(HMC.BRCA1.log[-(1:as.integer(dim(HMC.BRCA1.log)[1]/10)), -(1:18)])
+ESS.BRCA1.Serial <- effectiveSize(Serial.BRCA1.log[-(1:as.integer(dim(Serial.BRCA1.log)[1]/10)),-(1:18)])
+
+# use 90% timer time
+ESS.BRCA1.HMC.per.minute <- ESS.BRCA1.HMC / (HMC.BRCA1.timer * 0.9 / 60)
+ESS.BRCA1.Serial.per.minute <- ESS.BRCA1.Serial / (Serial.timer * 0.9 / 60)
+
+
+cat("Serial Min Median Max ESS/min: ", min(ESS.BRCA1.Serial.per.minute), median(ESS.BRCA1.Serial.per.minute), max(ESS.BRCA1.Serial.per.minute), "\n")
+cat("HMC Min Median Max ESS/min: ", min(ESS.BRCA1.HMC.per.minute), median(ESS.BRCA1.HMC.per.minute), max(ESS.BRCA1.HMC.per.minute), "\n")
+cat("log2 Serial Min Median Max ESS/min: ", log2(min(ESS.BRCA1.Serial.per.minute)), log2(median(ESS.BRCA1.Serial.per.minute)), log2(max(ESS.BRCA1.Serial.per.minute)), "\n")
+cat("log2 HMC Min Median Max ESS/min: ", log2(min(ESS.BRCA1.HMC.per.minute)), log2(median(ESS.BRCA1.HMC.per.minute)), log2(max(ESS.BRCA1.HMC.per.minute)), "\n")
+cat("Speedup: ", min(ESS.BRCA1.HMC.per.minute) / min(ESS.BRCA1.Serial.per.minute), median(ESS.BRCA1.HMC.per.minute) / median(ESS.BRCA1.Serial.per.minute), max(ESS.BRCA1.HMC.per.minute) / max(ESS.BRCA1.Serial.per.minute), "\n")
+```
+
+Summary
+
+```{r}
+ESS.BRCA1.HMC.per.min <- data.frame(ESS.per.min = log2(ESS.BRCA1.HMC.per.minute), Method = 'HMC')
+ESS.BRCA1.Serial.per.min <- data.frame(ESS.per.min = log2(ESS.BRCA1.Serial.per.minute), Method = 'Serial')
+ESS.compare <- rbind(ESS.BRCA1.HMC.per.min,  ESS.BRCA1.Serial.per.min)
+
+ESS.compare$Method <- with(ESS.compare, reorder(Method, ESS.per.min))
+
+library(ggplot2)
+require(scales)
+
+ggplot(ESS.compare, aes(ESS.per.min, fill=Method)) + 
+  geom_histogram(alpha=0.2, position="identity", breaks = seq(1.4, 4.4, by = 0.1), 
+                 col = "black") +
+  scale_x_continuous(breaks = (1:5), labels = (2^(1:5))) +
+  labs(x="Effective sample size per minute", y = "Parameter count") +
+  scale_fill_manual(values=c("#418FDE", "#F1BE48", "#006747"))+
+  theme(text = element_text(size = 20), axis.text = element_text(size = 15),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        legend.position = c(0.15, 0.82), legend.direction = "horizontal", legend.title = element_blank(),
+        legend.text = element_text(colour="black", size=12),
+        legend.key = element_rect(linetype = "blank", colour = "white"),
+        legend.spacing.x = unit(0.1, 'inches'),
+        panel.border = element_rect(colour = "black", fill=NA, size=1),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"))
+  ggsave("BRCA1_ESS.pdf", width = 10, height = 4)
+
+```
+
+
+
+```{r}
+HMC.apobec.log <- read.table("apobecMMM.HKY.shrinkage.large.parameters.hmc.log", 
+                      skip=3, header = TRUE, sep = "\t")
+Serial.apobec.log <- read.table("apobecMMM.HKY.shrinkage.large.parameters.serial.log", 
+                         skip = 3, header=TRUE, sep = "\t")
+
+HMC.apobec.timer <- readTimer("apobec_hmc_timer.txt")
+Serial.timer <- readTimer("apobec_serial_timer.txt")
+
+
+ESS.apobec.HMC <- effectiveSize(HMC.apobec.log[-(1:as.integer(dim(HMC.apobec.log)[1]/10)), -(1:278)])
+ESS.apobec.Serial <- effectiveSize(Serial.apobec.log[-(1:as.integer(dim(Serial.apobec.log)[1]/10)),-(1:278)])
+
+# use 90% timer time
+ESS.apobec.HMC.per.minute <- ESS.apobec.HMC / (HMC.apobec.timer * 0.9 / 60)
+ESS.apobec.Serial.per.minute <- ESS.apobec.Serial / (Serial.timer * 0.9 / 60)
+
+
+cat("Serial Min Median Max ESS/min: ", min(ESS.apobec.Serial.per.minute), median(ESS.apobec.Serial.per.minute), max(ESS.apobec.Serial.per.minute), "\n")
+cat("HMC Min Median Max ESS/min: ", min(ESS.apobec.HMC.per.minute), median(ESS.apobec.HMC.per.minute), max(ESS.apobec.HMC.per.minute), "\n")
+cat("log2 Serial Min Median Max ESS/min: ", log2(min(ESS.apobec.Serial.per.minute)), log2(median(ESS.apobec.Serial.per.minute)), log2(max(ESS.apobec.Serial.per.minute)), "\n")
+cat("log2 HMC Min Median Max ESS/min: ", log2(min(ESS.apobec.HMC.per.minute)), log2(median(ESS.apobec.HMC.per.minute)), log2(max(ESS.apobec.HMC.per.minute)), "\n")
+cat("Min Speedup: ", min(ESS.apobec.HMC.per.minute)/ min(ESS.apobec.Serial.per.minute), "\n")
+cat("Median Speedup: ", median(ESS.apobec.HMC.per.minute)/ median(ESS.apobec.Serial.per.minute), "\n")
+```
+
+Summary
+
+```{r}
+ESS.apobec.HMC.per.min <- data.frame(ESS.per.min = log2(ESS.apobec.HMC.per.minute), Method = 'HMC')
+ESS.apobec.Serial.per.min <- data.frame(ESS.per.min = log2(ESS.apobec.Serial.per.minute), Method = 'Serial')
+ESS.compare <- rbind(ESS.apobec.HMC.per.min,  ESS.apobec.Serial.per.min)
+
+ESS.compare$Method <- with(ESS.compare, reorder(Method, ESS.per.min))
+
+library(ggplot2)
+library(stringr)
+require(scales)
+
+squash_axis <- function(from, to, factor) {
+  #source: https://rpubs.com/huanfaChen/squash_remove_y_axix_ggplot
+    # A transformation function that squashes the range of [from, to] by factor on a given axis 
+
+    # Args:
+    #   from: left end of the axis
+    #   to: right end of the axis
+    #   factor: the compression factor of the range [from, to]
+    #
+    # Returns:
+    #   A transformation called "squash_axis", which is capsulated by trans_new() function
+
+  trans <- function(x) {
+      na.pos <- is.na(x)
+      # get indices for the relevant regions
+      isq <- (x > from & x < to) & !na.pos
+      ito <- (x >= to) & !na.pos
+
+      # apply transformation
+      x[isq] <- from + (x[isq] - from)/factor
+      x[ito] <- from + (to - from)/factor + (x[ito] - to)
+
+      return(x)
+  }
+
+  inv <- function(x) {
+      na.pos <- is.na(x)
+      # get indices for the relevant regions
+      isq <- (x > from & x < from + (to - from)/factor) & !na.pos
+      ito <- (x >= from + (to - from)/factor) & !na.pos
+
+      # apply transformation
+      x[isq] <- from + (x[isq] - from) * factor
+      x[ito] <- to + (x[ito] - (from + (to - from)/factor))
+
+      return(x)
+  }
+
+# return the transformation
+  return(trans_new("squash_axis", trans, inv))
+}
+
+
+ggplot(ESS.compare, aes(ESS.per.min, fill=Method)) + 
+  geom_histogram(alpha=0.2, position="identity", breaks = seq(-8, 5, by = 0.1), 
+                 col = "black") +
+  scale_x_continuous(breaks = c(seq(-7, -1, by = 2), c(1, 4)), labels = c(str_c("1/", 2^(seq(7, 1, by = -2))), 2^c(1, 4))) +
+  scale_y_continuous(trans = squash_axis(20, 300, 50), breaks = c(0, 10, 20, 220) ) + # seq(0, 300, by = 20)
+  labs(x="Effective sample size per minute", y = "Parameter count") +
+  scale_fill_manual(values=c("#418FDE", "#F1BE48", "#006747"))+
+  theme(text = element_text(size = 20), axis.text = element_text(size = 15),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        legend.position = c(0.15, 0.82), legend.direction = "horizontal", legend.title = element_blank(),
+        legend.text = element_text(colour="black", size=12),
+        legend.key = element_rect(linetype = "blank", colour = "white"),
+        legend.spacing.x = unit(0.1, 'inches'),
+        panel.border = element_rect(colour = "black", fill=NA, size=1),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"))
+  ggsave("apobec_ESS.pdf", width = 10, height = 4)
+
+```
