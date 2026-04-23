@@ -23,24 +23,24 @@ You can either use the provided image directly, or build it from the docker file
 For `x86_64` computer systems (e.g., Intel/AMD chips), please load the x86 docker image by
 
 ```
-cd where_this_repository_is_stored
-docker load -i beast_x86.tar
+docker pull beast1/beastx:x86_64
 ```
 and start an interactive bash session by
 ```
-docker run --mount type=bind,src="$(pwd)",target=/tmp -it beast_x86 bash
+cd where_this_repository_is_stored
+docker run --mount type=bind,src="$(pwd)",target=/tmp -it beast1/beastx:x86_64 bash
 ```
 
 
 For `arm_64` computer systems (e.g., Apple silicon chips), please load the arm docker image (e.g., in a Docker Desktop command line environment) by
 
 ```
-cd where_this_repository_is_stored
-docker load -i beast_arm.tar
+docker pull beast1/beastx:arm_64
 ```
 and start an interactive bash session by
 ```
-docker run --mount type=bind,src="$(pwd)",target=/tmp -it beast_arm bash
+cd where_this_repository_is_stored
+docker run --mount type=bind,src="$(pwd)",target=/tmp -it beast1/beastx:arm_64 bash
 ```
 
 You can now jump to the "Reproducing the analyses" section (i.e., skipping the next section on building these docker images).
@@ -59,7 +59,7 @@ To build the docker image for `arm_64` systems (e.g., Apple silicon chips), plea
 
 ```
 cd where_this_repository_is_stored
-docker build --platform ARM64 -t beast docker
+docker build --platform linux/arm64 -t beast docker
 ```
 
 You can now open an interactive bash session under docker container.
@@ -159,8 +159,8 @@ Follow the [instructions](https://github.com/beagle-dev/beagle-lib) if you need 
 xcode-select --install
 brew install libtool autoconf automake
 git clone -b hmc-clock https://github.com/beagle-dev/beagle-lib.git
-git checkout edfb106eb12efae798945ed3dd0a2f918e8c1a28
 cd beagle-lib
+git checkout edfb106eb12efae798945ed3dd0a2f918e8c1a28
 mkdir build
 cd build
 cmake -DBUILD_CUDA=OFF -DBUILD_OPENCL=OFF ..
@@ -171,10 +171,10 @@ sudo make install
 For Linux users, the commands are similar.
 
 ```
-sudo apt-get install build-essential autoconf automake libtool git pkg-config openjdk-9-jdk
+sudo apt-get install build-essential autoconf cmake automake libtool git pkg-config openjdk-9-jdk
 git clone -b hmc-clock https://github.com/beagle-dev/beagle-lib.git
-git checkout edfb106eb12efae798945ed3dd0a2f918e8c1a28
 cd beagle-lib
+git checkout edfb106eb12efae798945ed3dd0a2f918e8c1a28
 mkdir build
 cd build
 cmake -DBUILD_CUDA=OFF -DBUILD_OPENCL=OFF ..
@@ -193,7 +193,7 @@ The following commands will compile the `hmc-clock` branch of BEAST.
 ```
 git clone -b hmc-clock https://github.com/beast-dev/beast-mcmc.git
 cd beast-mcmc
-git checkout 215bf75e51d465b1f56153836a43c0ebdbd8890e
+git checkout e6efe7e865a25cd2d28cc6ad8553e662315a4836
 ant
 ```
 
