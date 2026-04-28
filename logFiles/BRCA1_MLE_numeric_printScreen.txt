@@ -1,0 +1,555 @@
+
+                  BEAST v10.5.0, 2002-2025
+       Bayesian Evolutionary Analysis Sampling Trees
+                 Designed and developed by
+   Alexei J. Drummond, Andrew Rambaut and Marc A. Suchard
+                              
+               Department of Computer Science
+                   University of Auckland
+                  alexei@cs.auckland.ac.nz
+                              
+             Institute of Ecology and Evolution
+                  University of Edinburgh
+                     a.rambaut@ed.ac.uk
+                              
+              David Geffen School of Medicine
+           University of California, Los Angeles
+                     msuchard@ucla.edu
+                              
+                Downloads, Help & Resources:
+                  	http://beast.community
+                              
+Source code distributed under the GNU Lesser General Public License:
+          	http://github.com/beast-dev/beast-mcmc
+                              
+                     BEAST developers:
+	Alex Alekseyenko, Daniel Ayres, Guy Baele, Trevor Bedford, Filip Bielejec, Erik Bloomquist, 
+	Luiz Max Carvalho, Gabriela Cybis, Mandev Gill, Matthew Hall, Gabe Hassler, Joseph Heled, 
+	Sebastian Hoehna, Xiang Ji, Michael Karcher, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, 
+	Gerton Lunter, Andy Magee, Sidney Markowitz, JT McCrone, Volodymyr Minin, Julia Palacios, 
+	Michael Defoin Platel, Oliver Pybus, Yucai Shao, Max Tolkoff, Chieh-Hsi Wu, Walter Xie and Zhenyu Zhang
+                              
+                         Thanks to:
+    	Roald Forsberg, Beth Shapiro and Korbinian Strimmer
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::loadLibrary has been called by beagle.BeagleJNIWrapper in an unnamed module (file:/Users/xiangji/Dropbox/My_Files/GitFolders/beast-mcmc/lib/beagle.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+Using BEAGLE library v4.0.2 (PRE-RELEASE) for accelerated, parallel likelihood evaluation
+2009-, BEAGLE Working Group - https://beagle-dev.github.io/
+Citation: Ayres et al (2019) Systematic Biology 68: 1052-1061 | doi:10.1093/sysbio/syz020
+
+
+Random number seed: 666
+
+
+
+Loading additional development parsers from development_parsers.properties, which is additional set of parsers only available for development version ...
+
+
+Parsing XML file: BRCA1_shrinkage_fixedRates_MLE_numeric.xml
+  File encoding: UTF8
+Looking for plugins in /Users/xiangji/Dropbox/My_Files/UCLA/Projects/bug/plugins
+Overriding checkpointing settings in the provided XML file
+
+Taxon list 'taxa' created with 8 taxa.
+    most recent taxon date = null
+
+Read alignment: alignment
+  Sequences = 8
+      Sites = 3369
+   Datatype = nucleotide
+Converted alignment, 'codonAlignment', from nucleotide to codon
+
+Site patterns 'patterns' created from positions 1-1123 of alignment 'codonAlignment'
+  compressed to unique site patterns
+  pattern count = 638
+  Changing height of all nodes by 0.0
+
+Creating the tree model, 'treeModel'
+             taxon count = 8
+             tree height = 0.07
+          min tip height = 0.0
+          max tip height = 0.0
+
+Creating state frequencies model 'nucleotidefrequencies': Using empirical frequencies from data = {0.36929, 0.1762, 0.2113, 0.24321}
+
+Using an scaled mixture of normals model.
+  rates = 14
+  NB: Make sure you have a prior on omega.rates
+  reciprocal = false
+Using a fixed effects model with initial design matrix:
+	[ 1.0 ] : human
+	[ 1.0 ] : chimpanzee
+	[ 1.0 ] : gorilla
+	[ 1.0 ] : orangutan
+	[ 1.0 ] : macaca
+	[ 1.0 ] : howler_monkey
+	[ 1.0 ] : bushbaby
+	[ 1.0 ] : flying_lemur
+	[ 1.0 ] : (not external)
+	[ 1.0 ] : (not external)
+	[ 1.0 ] : (not external)
+	[ 1.0 ] : (not external)
+	[ 1.0 ] : (not external)
+	[ 1.0 ] : (not external)
+
+
+Creating site rate model: 
+  4 category discrete gamma with initial shape = 1.25
+  using equal weight discretization of gamma distribution
+
+Using an scaled mixture of normals model.
+  rates = 14
+  NB: Make sure you have a prior on branchRates.rates
+  reciprocal = false
+
+Creating tree data likelihood for 1 partition
+
+Creating BEAGLE DataLikelihood Delegate
+  Using BEAGLE resource 0: CPU (arm64)
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_SSE THREADING_CPP PROCESSOR_CPU FRAMEWORK_CPU PREORDER_TRANSPOSE_MANUAL
+    Using 12 threads for CPU.
+    Using preOrder partials in tree likelihood.
+    Using ambiguities in tree likelihood.
+    With 638 unique site patterns.
+    Using rescaling scheme : dynamic (rescaling every 10000 evaluations, delay rescaling until first overflow)
+
+Creating TreeDataLikelihood
+  Branch rate model: arbitraryBranchRates
+dr.evomodel.treedatalikelihood.TreeDataLikelihood(-10391.389132335582)
+  total operations = 7
+  matrix updates = 14
+  model changes = 0
+  make dirties = 0
+  calculate likelihoods = 1
+  get likelihoods = 1
+  all rate updates = 0
+  partial rate updates = 0
+  get post-order statistics = 0
+  calculate post-order statistics = 0
+  average likelihood time = 53
+
+
+Creating operator scheduler
+  Optimization schedule: log
+
+Likelihood computation is using an auto sizing thread pool.
+
+Creating the MCMC chain:
+  chain length = 0
+  operator adaption = true
+  adaptation delayed for 0 steps
+  full evaluation test off
+WARNING: Likelihood component, sbranchSpecific.omegas, created but not used in the MCMC
+WARNING: Likelihood component, scaled.omegas, created but not used in the MCMC
+WARNING: Likelihood component, branchRates, created but not used in the MCMC
+
+Citations for this analysis: 
+
+FRAMEWORK
+BEAST primary citation:
+	Baele G, Ji X, Hassler GW, McCrone JT, Shao Y, Zhang Z, Holbrook AJ, Lemey P, Drummond AJ, Rambaut A, Suchard MA (2025) BEAST X for Bayesian phylogenetic, phylogeographic and phylodynamic inference. Nature Methods. . DOI:10.1038/s41592-025-02751-x
+BEAGLE likelihood calculation library:
+	Ayres DL, Cummings MP, Baele G, Darling AE, Lewis PO, Swofford DL, Huelsenbeck JP, Lemey P, Rambaut A, Suchard MA (2019) BEAGLE 3: Improved performance, scaling and usability for a high-performance computing library for statistical phylogenetics. Systematic Biology. 68, 1052-1061
+
+HIGH-PERFORMANCE COMPUTING
+BEAGLE citation:
+	Ayres DL, Cummings MP, Baele G, Darling AE, Lewis PO, Swofford DL, Huelsenbeck JP, Lemey P, Rambaut A, Suchard MA (2019) BEAGLE 3: Improved performance, scaling and usability for a high-performance computing library for statistical phylogenetics. Systematic Biology. 68, 1052-1061
+
+SUBSTITUTION MODELS
+Goldman-Yang codon substitution model:
+	Goldman N, Yang Z (1994) A codon-based model of nucleotide substitution for protein-coding DNA sequences. Mol Biol Evol. 11, 725-736
+Discrete gamma-distributed rate heterogeneity model:
+	Yang Z (1994) Maximum likelihood phylogenetic estimation from DNA sequences with variable rates over sites: approximate methods. J. Mol. Evol.. 39, 306-314
+
+
+# BEAST v10.5.0
+# Generated Tue Apr 28 10:18:14 CDT 2026 [seed=666]
+# -beagle_threads 12 -force_resume -load_state BRCA1_hmc_save -seed 666 -overwrite /Users/xiangji/Dropbox/My_Files/UCLA/Projects/branchSpecificSubstitutionParameters/xml/BRCA1_shrinkage_fixedRates_MLE_numeric.xml
+state	Posterior   	rootHeight  	age(root)   
+Creating a node mapping:
+external: 8 > 0
+external: 8 > 1
+external: 9 > 2
+external: 10 > 3
+external: 11 > 4
+external: 12 > 5
+external: 13 > 6
+external: 14 > 7
+internal: 9 > 8
+internal: 10 > 9
+internal: 11 > 10
+internal: 12 > 11
+internal: 13 > 12
+internal: 14 > 13
+adopting 3 trait models to treeModel treeModel
+Creating a node mapping:
+Setting external node node 0, height=0.0: human to 2.098674380749516
+Setting external node node 1, height=0.0: chimpanzee to 11.474190093341639
+Setting external node node 2, height=0.0: gorilla to 0.2742854195368885
+Setting external node node 3, height=0.0: orangutan to 0.3644954864993556
+Setting external node node 4, height=0.0: macaca to 0.28856715818974527
+Setting external node node 5, height=0.0: howler_monkey to 0.5633465411697168
+Setting external node node 6, height=0.0: bushbaby to 0.40728254856937035
+Setting external node node 7, height=0.0: flying_lemur to 0.2779585486398621
+Setting internal node node 8, height=0.012430878422986772 to 2.0054395494119386
+Setting internal node node 9, height=0.013172066083355635 to 0.31166769190012666
+Setting internal node node 10, height=0.028750032370066837 to 0.1823616507601424
+Setting internal node node 11, height=0.07337305520902337 to 0.405836170503663
+Setting internal node node 12, height=0.10519448834284098 to 0.41740139524946024
+Setting internal node node 13, height=0.22835204349696617 to 0.9040865689384856
+Setting external node node 0, height=0.0: human to 0.7
+Setting external node node 1, height=0.0: chimpanzee to 1.0
+Setting external node node 2, height=0.0: gorilla to 1.0
+Setting external node node 3, height=0.0: orangutan to 1.0
+Setting external node node 4, height=0.0: macaca to 1.0
+Setting external node node 5, height=0.0: howler_monkey to 1.0
+Setting external node node 6, height=0.0: bushbaby to 1.0
+Setting external node node 7, height=0.0: flying_lemur to 1.0
+Setting internal node node 8, height=0.012430878422986772 to 1.0
+Setting internal node node 9, height=0.013172066083355635 to 1.0
+Setting internal node node 10, height=0.028750032370066837 to 1.0
+Setting internal node node 11, height=0.07337305520902337 to 1.0
+Setting internal node node 12, height=0.10519448834284098 to 1.0
+Setting internal node node 13, height=0.22835204349696617 to 1.0
+Setting external node node 0, height=0.0: human to 0.8
+Setting external node node 1, height=0.0: chimpanzee to 1.0
+Setting external node node 2, height=0.0: gorilla to 1.0
+Setting external node node 3, height=0.0: orangutan to 1.0
+Setting external node node 4, height=0.0: macaca to 1.0
+Setting external node node 5, height=0.0: howler_monkey to 1.0
+Setting external node node 6, height=0.0: bushbaby to 1.0
+Setting external node node 7, height=0.0: flying_lemur to 1.0
+Setting internal node node 8, height=0.012430878422986772 to 1.0
+Setting internal node node 9, height=0.013172066083355635 to 1.0
+Setting internal node node 10, height=0.028750032370066837 to 1.0
+Setting internal node node 11, height=0.07337305520902337 to 1.0
+Setting internal node node 12, height=0.10519448834284098 to 1.0
+Setting internal node node 13, height=0.22835204349696617 to 1.0
+Forcing analysis to resume regardless of recomputed likelihood values (-9386.186254059114 vs. -9384.838449672405).
+0	-9386.1863  	0.24285     	0.24285     	-
+
+Operator analysis
+Operator                                          Tuning   Count      Time     Time/Op (ns)Pr(accept) Smoothed_Pr(accept)
+VanillaHMC(null)                                  0.062   20600      0        0.0      0.8011      NaN         
+
+Iteration 1:
+	fx = 9360.385456, xnorm = 4.398104, gnorm = 3.797781, step = 0.042086
+	n = 14, k = 1, ls = 0
+
+Iteration 2:
+	fx = 9360.106816, xnorm = 4.381168, gnorm = 2.195598, step = 1.000000
+	n = 14, k = 2, ls = 0
+
+Iteration 3:
+	fx = 9359.879513, xnorm = 4.341619, gnorm = 2.098577, step = 1.000000
+	n = 14, k = 3, ls = 0
+
+Iteration 4:
+	fx = 9359.543947, xnorm = 4.270583, gnorm = 2.007008, step = 1.000000
+	n = 14, k = 4, ls = 0
+
+Iteration 5:
+	fx = 9359.234586, xnorm = 4.238390, gnorm = 1.834105, step = 1.000000
+	n = 14, k = 5, ls = 0
+
+Iteration 6:
+	fx = 9359.099976, xnorm = 4.017354, gnorm = 3.094655, step = 1.000000
+	n = 14, k = 6, ls = 0
+
+Iteration 7:
+	fx = 9358.906373, xnorm = 4.050378, gnorm = 1.536837, step = 1.000000
+	n = 14, k = 7, ls = 0
+
+Iteration 8:
+	fx = 9358.773130, xnorm = 4.007676, gnorm = 1.119660, step = 1.000000
+	n = 14, k = 8, ls = 0
+
+Iteration 9:
+	fx = 9358.563840, xnorm = 3.854460, gnorm = 1.507814, step = 1.000000
+	n = 14, k = 9, ls = 0
+
+Iteration 10:
+	fx = 9358.513586, xnorm = 3.814753, gnorm = 1.257631, step = 0.410710
+	n = 14, k = 10, ls = 0
+
+Iteration 11:
+	fx = 9358.471752, xnorm = 3.769186, gnorm = 0.638390, step = 1.000000
+	n = 14, k = 11, ls = 0
+
+Iteration 12:
+	fx = 9358.463977, xnorm = 3.755794, gnorm = 0.223182, step = 1.000000
+	n = 14, k = 12, ls = 0
+
+Iteration 13:
+	fx = 9358.462899, xnorm = 3.760738, gnorm = 0.148825, step = 1.000000
+	n = 14, k = 13, ls = 0
+
+Iteration 14:
+	fx = 9358.460986, xnorm = 3.770490, gnorm = 0.144676, step = 1.000000
+	n = 14, k = 14, ls = 0
+
+Iteration 15:
+	fx = 9358.459539, xnorm = 3.780146, gnorm = 0.121677, step = 1.000000
+	n = 14, k = 15, ls = 0
+
+Iteration 16:
+	fx = 9358.459339, xnorm = 3.784850, gnorm = 0.214342, step = 1.000000
+	n = 14, k = 16, ls = 0
+
+Iteration 17:
+	fx = 9358.458578, xnorm = 3.783545, gnorm = 0.069717, step = 1.000000
+	n = 14, k = 17, ls = 0
+
+Iteration 18:
+	fx = 9358.458351, xnorm = 3.782110, gnorm = 0.061137, step = 1.000000
+	n = 14, k = 18, ls = 0
+
+Iteration 19:
+	fx = 9358.457622, xnorm = 3.779644, gnorm = 0.119986, step = 1.000000
+	n = 14, k = 19, ls = 0
+
+Iteration 20:
+	fx = 9358.456411, xnorm = 3.779678, gnorm = 0.173899, step = 1.000000
+	n = 14, k = 20, ls = 0
+
+Iteration 21:
+	fx = 9358.454288, xnorm = 3.783238, gnorm = 0.266229, step = 1.000000
+	n = 14, k = 21, ls = 0
+
+Iteration 22:
+	fx = 9358.450183, xnorm = 3.800872, gnorm = 0.261234, step = 1.000000
+	n = 14, k = 22, ls = 0
+
+Iteration 23:
+	fx = 9358.441678, xnorm = 3.870273, gnorm = 0.308339, step = 1.000000
+	n = 14, k = 23, ls = 0
+
+Iteration 24:
+	fx = 9358.433371, xnorm = 4.120177, gnorm = 0.552312, step = 1.000000
+	n = 14, k = 24, ls = 0
+
+Iteration 25:
+	fx = 9358.425261, xnorm = 4.284713, gnorm = 0.276392, step = 1.000000
+	n = 14, k = 25, ls = 0
+
+Iteration 26:
+	fx = 9358.421858, xnorm = 4.286909, gnorm = 0.216558, step = 1.000000
+	n = 14, k = 26, ls = 0
+
+Iteration 27:
+	fx = 9358.417171, xnorm = 4.354276, gnorm = 0.186546, step = 1.000000
+	n = 14, k = 27, ls = 0
+
+Iteration 28:
+	fx = 9358.414659, xnorm = 4.572425, gnorm = 0.283290, step = 1.000000
+	n = 14, k = 28, ls = 0
+
+Iteration 29:
+	fx = 9358.412376, xnorm = 4.710569, gnorm = 0.142056, step = 1.000000
+	n = 14, k = 29, ls = 0
+
+Iteration 30:
+	fx = 9358.410575, xnorm = 5.008476, gnorm = 0.115829, step = 1.000000
+	n = 14, k = 30, ls = 0
+
+Iteration 31:
+	fx = 9358.409573, xnorm = 5.351526, gnorm = 0.202758, step = 1.000000
+	n = 14, k = 31, ls = 0
+
+Iteration 32:
+	fx = 9358.408360, xnorm = 5.675526, gnorm = 0.122194, step = 1.000000
+	n = 14, k = 32, ls = 0
+
+Iteration 33:
+	fx = 9358.406849, xnorm = 6.256791, gnorm = 0.102252, step = 1.000000
+	n = 14, k = 33, ls = 0
+
+Iteration 34:
+	fx = 9358.405515, xnorm = 7.106606, gnorm = 0.171022, step = 1.000000
+	n = 14, k = 34, ls = 0
+
+Iteration 35:
+	fx = 9358.403361, xnorm = 8.571634, gnorm = 0.160208, step = 1.000000
+	n = 14, k = 35, ls = 0
+
+Iteration 36:
+	fx = 9358.399817, xnorm = 11.783202, gnorm = 0.130332, step = 1.000000
+	n = 14, k = 36, ls = 0
+
+Iteration 37:
+	fx = 9358.395033, xnorm = 17.632080, gnorm = 0.173985, step = 1.000000
+	n = 14, k = 37, ls = 0
+
+Iteration 38:
+	fx = 9358.391698, xnorm = 23.961030, gnorm = 0.324006, step = 0.474566
+	n = 14, k = 38, ls = 0
+
+Iteration 39:
+	fx = 9358.386081, xnorm = 28.748996, gnorm = 0.262563, step = 1.000000
+	n = 14, k = 39, ls = 0
+
+Iteration 40:
+	fx = 9358.378246, xnorm = 38.803249, gnorm = 0.694310, step = 1.000000
+	n = 14, k = 40, ls = 0
+
+Iteration 41:
+	fx = 9358.367750, xnorm = 42.583316, gnorm = 0.371807, step = 1.000000
+	n = 14, k = 41, ls = 0
+
+Iteration 42:
+	fx = 9358.364289, xnorm = 42.230212, gnorm = 0.223718, step = 1.000000
+	n = 14, k = 42, ls = 0
+
+Iteration 43:
+	fx = 9358.360665, xnorm = 44.988843, gnorm = 0.108056, step = 1.000000
+	n = 14, k = 43, ls = 0
+
+Iteration 44:
+	fx = 9358.358936, xnorm = 49.530671, gnorm = 0.153029, step = 1.000000
+	n = 14, k = 44, ls = 0
+
+Iteration 45:
+	fx = 9358.357840, xnorm = 55.634021, gnorm = 0.133928, step = 1.000000
+	n = 14, k = 45, ls = 0
+
+Iteration 46:
+	fx = 9358.357364, xnorm = 57.367072, gnorm = 0.051251, step = 1.000000
+	n = 14, k = 46, ls = 0
+
+Iteration 47:
+	fx = 9358.357282, xnorm = 57.942458, gnorm = 0.029631, step = 1.000000
+	n = 14, k = 47, ls = 0
+
+Iteration 48:
+	fx = 9358.357189, xnorm = 59.241916, gnorm = 0.031645, step = 1.000000
+	n = 14, k = 48, ls = 0
+
+Iteration 49:
+	fx = 9358.357074, xnorm = 61.811342, gnorm = 0.048650, step = 1.000000
+	n = 14, k = 49, ls = 0
+
+Iteration 50:
+	fx = 9358.356946, xnorm = 65.721736, gnorm = 0.063373, step = 1.000000
+	n = 14, k = 50, ls = 0
+
+Iteration 51:
+	fx = 9358.356840, xnorm = 68.484124, gnorm = 0.034120, step = 1.000000
+	n = 14, k = 51, ls = 0
+
+Iteration 52:
+	fx = 9358.356760, xnorm = 71.603000, gnorm = 0.023475, step = 1.000000
+	n = 14, k = 52, ls = 0
+
+Iteration 53:
+	fx = 9358.356698, xnorm = 74.546720, gnorm = 0.030198, step = 1.000000
+	n = 14, k = 53, ls = 0
+
+Iteration 54:
+	fx = 9358.356585, xnorm = 81.294289, gnorm = 0.033690, step = 1.000000
+	n = 14, k = 54, ls = 0
+
+Iteration 55:
+	fx = 9358.356541, xnorm = 85.480243, gnorm = 0.036294, step = 0.361947
+	n = 14, k = 55, ls = 0
+
+Iteration 56:
+	fx = 9358.356495, xnorm = 90.081263, gnorm = 0.013827, step = 1.000000
+	n = 14, k = 56, ls = 0
+
+Iteration 57:
+	fx = 9358.356486, xnorm = 93.207338, gnorm = 0.009191, step = 1.000000
+	n = 14, k = 57, ls = 0
+
+Iteration 58:
+	fx = 9358.356484, xnorm = 94.038108, gnorm = 0.005134, step = 1.000000
+	n = 14, k = 58, ls = 0
+
+Iteration 59:
+	fx = 9358.356483, xnorm = 94.161513, gnorm = 0.003192, step = 1.000000
+	n = 14, k = 59, ls = 0
+
+Iteration 60:
+	fx = 9358.356482, xnorm = 94.149587, gnorm = 0.003170, step = 1.000000
+	n = 14, k = 60, ls = 0
+
+Iteration 61:
+	fx = 9358.356482, xnorm = 94.376617, gnorm = 0.002180, step = 1.000000
+	n = 14, k = 61, ls = 0
+
+Iteration 62:
+	fx = 9358.356481, xnorm = 95.867903, gnorm = 0.002576, step = 1.000000
+	n = 14, k = 62, ls = 0
+
+Iteration 63:
+	fx = 9358.356480, xnorm = 96.374619, gnorm = 0.005020, step = 1.000000
+	n = 14, k = 63, ls = 0
+
+Iteration 64:
+	fx = 9358.356479, xnorm = 97.245645, gnorm = 0.004095, step = 1.000000
+	n = 14, k = 64, ls = 0
+
+Iteration 65:
+	fx = 9358.356477, xnorm = 100.599652, gnorm = 0.004307, step = 1.000000
+	n = 14, k = 65, ls = 0
+
+Iteration 66:
+	fx = 9358.356476, xnorm = 103.133162, gnorm = 0.008261, step = 1.000000
+	n = 14, k = 66, ls = 0
+
+Iteration 67:
+	fx = 9358.356475, xnorm = 103.422313, gnorm = 0.003625, step = 1.000000
+	n = 14, k = 67, ls = 0
+
+Iteration 68:
+	fx = 9358.356475, xnorm = 107.299314, gnorm = 0.007999, step = 1.000000
+	n = 14, k = 68, ls = 0
+
+Iteration 69:
+	fx = 9358.356474, xnorm = 108.179276, gnorm = 0.005677, step = 1.000000
+	n = 14, k = 69, ls = 0
+
+Iteration 70:
+	fx = 9358.356474, xnorm = 107.476902, gnorm = 0.002179, step = 0.515516
+	n = 14, k = 70, ls = 0
+
+Iteration 71:
+	fx = 9358.356474, xnorm = 107.498545, gnorm = 0.001704, step = 1.000000
+	n = 14, k = 71, ls = 0
+
+Iteration 72:
+	fx = 9358.356473, xnorm = 107.846893, gnorm = 0.001969, step = 1.000000
+	n = 14, k = 72, ls = 0
+
+Iteration 73:
+	fx = 9358.356473, xnorm = 109.034297, gnorm = 0.003005, step = 1.000000
+	n = 14, k = 73, ls = 0
+
+Iteration 74:
+	fx = 9358.356473, xnorm = 111.552837, gnorm = 0.005043, step = 5.000000
+	n = 14, k = 74, ls = 0
+
+Iteration 75:
+	fx = 9358.356472, xnorm = 114.173854, gnorm = 0.004263, step = 1.000000
+	n = 14, k = 75, ls = 0
+
+Iteration 76:
+	fx = 9358.356472, xnorm = 115.816584, gnorm = 0.003854, step = 1.000000
+	n = 14, k = 76, ls = 0
+
+Iteration 77:
+	fx = 9358.356472, xnorm = 116.407253, gnorm = 0.001029, step = 1.000000
+	n = 14, k = 77, ls = 0
+
+Gradient is taken with respect to the transformed parameter values.
+Untransformed X: [ 1.1520259315479668, 1.4015767228477467, 0.17009363211816614, 0.35335755853473383, 0.2993063052766045, 0.475358698554595, 0.42610918899877626, 0.26400815429225505, 2.682127359340203E-6, 0.2967845573090157, 0.22877702911519732, 0.41777654237970974, 0.4447046511280852, 1.6631133937950653E50]
+X: [ 0.14152207204462955, 0.3375978335048246, -1.7714062163882645, -1.0402748210036368, -1.2062877976009658, -0.7436856050816786, -0.8530596533514276, -1.331775288842166, -12.828900287528217, -1.2147487996725528, -1.4750074217404208, -0.872808577008632, -0.8103449224959287, 115.63794603387537]
+Gradient: [ -2.323952975998497E-4, 1.7066065915697775E-5, 5.071116293370664E-5, 2.896176379093346E-4, -7.431002120502702E-5, 5.431849756532548E-6, -6.185632820078918E-4, 4.290879854845379E-4, 7.827615121995014E-7, 3.9198268589906024E-6, -5.975313036195078E-6, 5.198555639672604E-4, -2.7440481966231205E-4, -1.4840057317998065E-7]
+Gradient type: numerical
+Fx: 9358.356471937099
+Time: 37.825s
+Count: 2465
+

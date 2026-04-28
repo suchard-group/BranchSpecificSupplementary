@@ -1,0 +1,1137 @@
+
+                  BEAST v10.5.0, 2002-2025
+       Bayesian Evolutionary Analysis Sampling Trees
+                 Designed and developed by
+   Alexei J. Drummond, Andrew Rambaut and Marc A. Suchard
+                              
+               Department of Computer Science
+                   University of Auckland
+                  alexei@cs.auckland.ac.nz
+                              
+             Institute of Ecology and Evolution
+                  University of Edinburgh
+                     a.rambaut@ed.ac.uk
+                              
+              David Geffen School of Medicine
+           University of California, Los Angeles
+                     msuchard@ucla.edu
+                              
+                Downloads, Help & Resources:
+                  	http://beast.community
+                              
+Source code distributed under the GNU Lesser General Public License:
+          	http://github.com/beast-dev/beast-mcmc
+                              
+                     BEAST developers:
+	Alex Alekseyenko, Daniel Ayres, Guy Baele, Trevor Bedford, Filip Bielejec, Erik Bloomquist, 
+	Luiz Max Carvalho, Gabriela Cybis, Mandev Gill, Matthew Hall, Gabe Hassler, Joseph Heled, 
+	Sebastian Hoehna, Xiang Ji, Michael Karcher, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, 
+	Gerton Lunter, Andy Magee, Sidney Markowitz, JT McCrone, Volodymyr Minin, Julia Palacios, 
+	Michael Defoin Platel, Oliver Pybus, Yucai Shao, Max Tolkoff, Chieh-Hsi Wu, Walter Xie and Zhenyu Zhang
+                              
+                         Thanks to:
+    	Roald Forsberg, Beth Shapiro and Korbinian Strimmer
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::loadLibrary has been called by beagle.BeagleJNIWrapper in an unnamed module (file:/Users/xiangji/Dropbox/My_Files/GitFolders/beast-mcmc/lib/beagle.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+Using BEAGLE library v4.0.2 (PRE-RELEASE) for accelerated, parallel likelihood evaluation
+2009-, BEAGLE Working Group - https://beagle-dev.github.io/
+Citation: Ayres et al (2019) Systematic Biology 68: 1052-1061 | doi:10.1093/sysbio/syz020
+
+
+Random number seed: 666
+
+
+
+Loading additional development parsers from development_parsers.properties, which is additional set of parsers only available for development version ...
+
+
+Parsing XML file: BRCA1_shrinkage_fixedRates_MLE_analytic.xml
+  File encoding: UTF8
+Looking for plugins in /Users/xiangji/Dropbox/My_Files/UCLA/Projects/bug/plugins
+Overriding checkpointing settings in the provided XML file
+
+Taxon list 'taxa' created with 8 taxa.
+    most recent taxon date = null
+
+Read alignment: alignment
+  Sequences = 8
+      Sites = 3369
+   Datatype = nucleotide
+Converted alignment, 'codonAlignment', from nucleotide to codon
+
+Site patterns 'patterns' created from positions 1-1123 of alignment 'codonAlignment'
+  compressed to unique site patterns
+  pattern count = 638
+  Changing height of all nodes by 0.0
+
+Creating the tree model, 'treeModel'
+             taxon count = 8
+             tree height = 0.07
+          min tip height = 0.0
+          max tip height = 0.0
+
+Creating state frequencies model 'nucleotidefrequencies': Using empirical frequencies from data = {0.36929, 0.1762, 0.2113, 0.24321}
+
+Using an scaled mixture of normals model.
+  rates = 14
+  NB: Make sure you have a prior on omega.rates
+  reciprocal = false
+Using a fixed effects model with initial design matrix:
+	[ 1.0 ] : human
+	[ 1.0 ] : chimpanzee
+	[ 1.0 ] : gorilla
+	[ 1.0 ] : orangutan
+	[ 1.0 ] : macaca
+	[ 1.0 ] : howler_monkey
+	[ 1.0 ] : bushbaby
+	[ 1.0 ] : flying_lemur
+	[ 1.0 ] : (not external)
+	[ 1.0 ] : (not external)
+	[ 1.0 ] : (not external)
+	[ 1.0 ] : (not external)
+	[ 1.0 ] : (not external)
+	[ 1.0 ] : (not external)
+
+
+Creating site rate model: 
+  4 category discrete gamma with initial shape = 1.25
+  using equal weight discretization of gamma distribution
+
+Using an scaled mixture of normals model.
+  rates = 14
+  NB: Make sure you have a prior on branchRates.rates
+  reciprocal = false
+
+Creating tree data likelihood for 1 partition
+
+Creating BEAGLE DataLikelihood Delegate
+  Using BEAGLE resource 0: CPU (arm64)
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_SSE THREADING_CPP PROCESSOR_CPU FRAMEWORK_CPU PREORDER_TRANSPOSE_MANUAL
+    Using 12 threads for CPU.
+    Using preOrder partials in tree likelihood.
+    Using ambiguities in tree likelihood.
+    With 638 unique site patterns.
+    Using rescaling scheme : dynamic (rescaling every 10000 evaluations, delay rescaling until first overflow)
+
+Creating TreeDataLikelihood
+  Branch rate model: arbitraryBranchRates
+dr.evomodel.treedatalikelihood.TreeDataLikelihood(-10391.389132335582)
+  total operations = 7
+  matrix updates = 14
+  model changes = 0
+  make dirties = 0
+  calculate likelihoods = 1
+  get likelihoods = 1
+  all rate updates = 0
+  partial rate updates = 0
+  get post-order statistics = 0
+  calculate post-order statistics = 0
+  average likelihood time = 93
+
+
+Creating operator scheduler
+  Optimization schedule: log
+
+Likelihood computation is using an auto sizing thread pool.
+
+Creating the MCMC chain:
+  chain length = 0
+  operator adaption = true
+  adaptation delayed for 0 steps
+  full evaluation test off
+WARNING: Likelihood component, sbranchSpecific.omegas, created but not used in the MCMC
+WARNING: Likelihood component, scaled.omegas, created but not used in the MCMC
+WARNING: Likelihood component, branchRates, created but not used in the MCMC
+
+Citations for this analysis: 
+
+FRAMEWORK
+BEAST primary citation:
+	Baele G, Ji X, Hassler GW, McCrone JT, Shao Y, Zhang Z, Holbrook AJ, Lemey P, Drummond AJ, Rambaut A, Suchard MA (2025) BEAST X for Bayesian phylogenetic, phylogeographic and phylodynamic inference. Nature Methods. . DOI:10.1038/s41592-025-02751-x
+BEAGLE likelihood calculation library:
+	Ayres DL, Cummings MP, Baele G, Darling AE, Lewis PO, Swofford DL, Huelsenbeck JP, Lemey P, Rambaut A, Suchard MA (2019) BEAGLE 3: Improved performance, scaling and usability for a high-performance computing library for statistical phylogenetics. Systematic Biology. 68, 1052-1061
+
+HIGH-PERFORMANCE COMPUTING
+BEAGLE citation:
+	Ayres DL, Cummings MP, Baele G, Darling AE, Lewis PO, Swofford DL, Huelsenbeck JP, Lemey P, Rambaut A, Suchard MA (2019) BEAGLE 3: Improved performance, scaling and usability for a high-performance computing library for statistical phylogenetics. Systematic Biology. 68, 1052-1061
+
+SUBSTITUTION MODELS
+Goldman-Yang codon substitution model:
+	Goldman N, Yang Z (1994) A codon-based model of nucleotide substitution for protein-coding DNA sequences. Mol Biol Evol. 11, 725-736
+Discrete gamma-distributed rate heterogeneity model:
+	Yang Z (1994) Maximum likelihood phylogenetic estimation from DNA sequences with variable rates over sites: approximate methods. J. Mol. Evol.. 39, 306-314
+
+
+# BEAST v10.5.0
+# Generated Tue Apr 28 10:17:06 CDT 2026 [seed=666]
+# -beagle_threads 12 -force_resume -load_state BRCA1_hmc_save -seed 666 -overwrite /Users/xiangji/Dropbox/My_Files/UCLA/Projects/branchSpecificSubstitutionParameters/xml/BRCA1_shrinkage_fixedRates_MLE_analytic.xml
+state	Posterior   	rootHeight  	age(root)   
+Creating a node mapping:
+external: 8 > 0
+external: 8 > 1
+external: 9 > 2
+external: 10 > 3
+external: 11 > 4
+external: 12 > 5
+external: 13 > 6
+external: 14 > 7
+internal: 9 > 8
+internal: 10 > 9
+internal: 11 > 10
+internal: 12 > 11
+internal: 13 > 12
+internal: 14 > 13
+adopting 3 trait models to treeModel treeModel
+Creating a node mapping:
+Setting external node node 0, height=0.0: human to 2.098674380749516
+Setting external node node 1, height=0.0: chimpanzee to 11.474190093341639
+Setting external node node 2, height=0.0: gorilla to 0.2742854195368885
+Setting external node node 3, height=0.0: orangutan to 0.3644954864993556
+Setting external node node 4, height=0.0: macaca to 0.28856715818974527
+Setting external node node 5, height=0.0: howler_monkey to 0.5633465411697168
+Setting external node node 6, height=0.0: bushbaby to 0.40728254856937035
+Setting external node node 7, height=0.0: flying_lemur to 0.2779585486398621
+Setting internal node node 8, height=0.012430878422986772 to 2.0054395494119386
+Setting internal node node 9, height=0.013172066083355635 to 0.31166769190012666
+Setting internal node node 10, height=0.028750032370066837 to 0.1823616507601424
+Setting internal node node 11, height=0.07337305520902337 to 0.405836170503663
+Setting internal node node 12, height=0.10519448834284098 to 0.41740139524946024
+Setting internal node node 13, height=0.22835204349696617 to 0.9040865689384856
+Setting external node node 0, height=0.0: human to 0.7
+Setting external node node 1, height=0.0: chimpanzee to 1.0
+Setting external node node 2, height=0.0: gorilla to 1.0
+Setting external node node 3, height=0.0: orangutan to 1.0
+Setting external node node 4, height=0.0: macaca to 1.0
+Setting external node node 5, height=0.0: howler_monkey to 1.0
+Setting external node node 6, height=0.0: bushbaby to 1.0
+Setting external node node 7, height=0.0: flying_lemur to 1.0
+Setting internal node node 8, height=0.012430878422986772 to 1.0
+Setting internal node node 9, height=0.013172066083355635 to 1.0
+Setting internal node node 10, height=0.028750032370066837 to 1.0
+Setting internal node node 11, height=0.07337305520902337 to 1.0
+Setting internal node node 12, height=0.10519448834284098 to 1.0
+Setting internal node node 13, height=0.22835204349696617 to 1.0
+Setting external node node 0, height=0.0: human to 0.8
+Setting external node node 1, height=0.0: chimpanzee to 1.0
+Setting external node node 2, height=0.0: gorilla to 1.0
+Setting external node node 3, height=0.0: orangutan to 1.0
+Setting external node node 4, height=0.0: macaca to 1.0
+Setting external node node 5, height=0.0: howler_monkey to 1.0
+Setting external node node 6, height=0.0: bushbaby to 1.0
+Setting external node node 7, height=0.0: flying_lemur to 1.0
+Setting internal node node 8, height=0.012430878422986772 to 1.0
+Setting internal node node 9, height=0.013172066083355635 to 1.0
+Setting internal node node 10, height=0.028750032370066837 to 1.0
+Setting internal node node 11, height=0.07337305520902337 to 1.0
+Setting internal node node 12, height=0.10519448834284098 to 1.0
+Setting internal node node 13, height=0.22835204349696617 to 1.0
+Forcing analysis to resume regardless of recomputed likelihood values (-9386.186254059114 vs. -9384.838449672405).
+0	-9386.1863  	0.24285     	0.24285     	-
+
+Operator analysis
+Operator                                          Tuning   Count      Time     Time/Op (ns)Pr(accept) Smoothed_Pr(accept)
+VanillaHMC(null)                                  0.062   20600      0        0.0      0.8011      NaN         
+
+Iteration 1:
+	fx = 9360.623980, xnorm = 3.296429, gnorm = 8.534770, step = 0.012664
+	n = 14, k = 1, ls = 0
+
+Iteration 2:
+	fx = 9360.290073, xnorm = 3.261030, gnorm = 5.393109, step = 1.000000
+	n = 14, k = 2, ls = 0
+
+Iteration 3:
+	fx = 9359.910991, xnorm = 3.197972, gnorm = 4.467008, step = 1.000000
+	n = 14, k = 3, ls = 0
+
+Iteration 4:
+	fx = 9359.571082, xnorm = 3.120259, gnorm = 3.334544, step = 1.000000
+	n = 14, k = 4, ls = 0
+
+Iteration 5:
+	fx = 9359.303990, xnorm = 3.021613, gnorm = 2.309630, step = 1.000000
+	n = 14, k = 5, ls = 0
+
+Iteration 6:
+	fx = 9359.134716, xnorm = 2.896522, gnorm = 2.279508, step = 1.000000
+	n = 14, k = 6, ls = 0
+
+Iteration 7:
+	fx = 9359.049745, xnorm = 2.841955, gnorm = 1.554309, step = 1.000000
+	n = 14, k = 7, ls = 0
+
+Iteration 8:
+	fx = 9358.929320, xnorm = 2.720814, gnorm = 2.808308, step = 1.000000
+	n = 14, k = 8, ls = 0
+
+Iteration 9:
+	fx = 9358.899009, xnorm = 2.541360, gnorm = 6.263586, step = 1.000000
+	n = 14, k = 9, ls = 0
+
+Iteration 10:
+	fx = 9358.774509, xnorm = 2.548497, gnorm = 1.967553, step = 1.000000
+	n = 14, k = 10, ls = 0
+
+Iteration 11:
+	fx = 9358.721752, xnorm = 2.525241, gnorm = 1.585900, step = 1.000000
+	n = 14, k = 11, ls = 0
+
+Iteration 12:
+	fx = 9358.687329, xnorm = 2.478893, gnorm = 1.432858, step = 1.000000
+	n = 14, k = 12, ls = 0
+
+Iteration 13:
+	fx = 9358.643572, xnorm = 2.437537, gnorm = 1.007474, step = 1.000000
+	n = 14, k = 13, ls = 0
+
+Iteration 14:
+	fx = 9358.565873, xnorm = 2.310992, gnorm = 1.532146, step = 1.000000
+	n = 14, k = 14, ls = 0
+
+Iteration 15:
+	fx = 9358.548941, xnorm = 2.333357, gnorm = 3.459091, step = 1.000000
+	n = 14, k = 15, ls = 0
+
+Iteration 16:
+	fx = 9358.497576, xnorm = 2.315423, gnorm = 0.774709, step = 1.000000
+	n = 14, k = 16, ls = 0
+
+Iteration 17:
+	fx = 9358.485416, xnorm = 2.320949, gnorm = 0.547995, step = 1.000000
+	n = 14, k = 17, ls = 0
+
+Iteration 18:
+	fx = 9358.477010, xnorm = 2.319339, gnorm = 0.792815, step = 1.000000
+	n = 14, k = 18, ls = 0
+
+Iteration 19:
+	fx = 9358.473706, xnorm = 2.317048, gnorm = 1.489962, step = 1.000000
+	n = 14, k = 19, ls = 0
+
+Iteration 20:
+	fx = 9358.466435, xnorm = 2.321296, gnorm = 0.425164, step = 1.000000
+	n = 14, k = 20, ls = 0
+
+Iteration 21:
+	fx = 9358.464938, xnorm = 2.321049, gnorm = 0.284796, step = 1.000000
+	n = 14, k = 21, ls = 0
+
+Iteration 22:
+	fx = 9358.463060, xnorm = 2.321600, gnorm = 0.224652, step = 1.000000
+	n = 14, k = 22, ls = 0
+
+Iteration 23:
+	fx = 9358.462092, xnorm = 2.321986, gnorm = 0.157110, step = 1.000000
+	n = 14, k = 23, ls = 0
+
+Iteration 24:
+	fx = 9358.461381, xnorm = 2.323163, gnorm = 0.239013, step = 1.000000
+	n = 14, k = 24, ls = 0
+
+Iteration 25:
+	fx = 9358.461147, xnorm = 2.324026, gnorm = 0.681950, step = 1.000000
+	n = 14, k = 25, ls = 0
+
+Iteration 26:
+	fx = 9358.459750, xnorm = 2.324183, gnorm = 0.258864, step = 1.000000
+	n = 14, k = 26, ls = 0
+
+Iteration 27:
+	fx = 9358.459137, xnorm = 2.325133, gnorm = 0.118054, step = 1.000000
+	n = 14, k = 27, ls = 0
+
+Iteration 28:
+	fx = 9358.458850, xnorm = 2.326214, gnorm = 0.119074, step = 1.000000
+	n = 14, k = 28, ls = 0
+
+Iteration 29:
+	fx = 9358.458292, xnorm = 2.329747, gnorm = 0.137641, step = 1.000000
+	n = 14, k = 29, ls = 0
+
+Iteration 30:
+	fx = 9358.457896, xnorm = 2.333500, gnorm = 0.190790, step = 0.160756
+	n = 14, k = 30, ls = 0
+
+Iteration 31:
+	fx = 9358.457177, xnorm = 2.341295, gnorm = 0.102161, step = 1.000000
+	n = 14, k = 31, ls = 0
+
+Iteration 32:
+	fx = 9358.456756, xnorm = 2.346479, gnorm = 0.079706, step = 1.000000
+	n = 14, k = 32, ls = 0
+
+Iteration 33:
+	fx = 9358.456609, xnorm = 2.357939, gnorm = 0.328098, step = 1.000000
+	n = 14, k = 33, ls = 0
+
+Iteration 34:
+	fx = 9358.456177, xnorm = 2.356864, gnorm = 0.183549, step = 1.000000
+	n = 14, k = 34, ls = 0
+
+Iteration 35:
+	fx = 9358.456011, xnorm = 2.355918, gnorm = 0.066729, step = 1.000000
+	n = 14, k = 35, ls = 0
+
+Iteration 36:
+	fx = 9358.455922, xnorm = 2.356467, gnorm = 0.047034, step = 1.000000
+	n = 14, k = 36, ls = 0
+
+Iteration 37:
+	fx = 9358.455824, xnorm = 2.358501, gnorm = 0.052433, step = 1.000000
+	n = 14, k = 37, ls = 0
+
+Iteration 38:
+	fx = 9358.455753, xnorm = 2.360177, gnorm = 0.198359, step = 1.000000
+	n = 14, k = 38, ls = 0
+
+Iteration 39:
+	fx = 9358.455536, xnorm = 2.363294, gnorm = 0.084853, step = 1.000000
+	n = 14, k = 39, ls = 0
+
+Iteration 40:
+	fx = 9358.455362, xnorm = 2.365818, gnorm = 0.071000, step = 1.000000
+	n = 14, k = 40, ls = 0
+
+Iteration 41:
+	fx = 9358.455165, xnorm = 2.369042, gnorm = 0.134165, step = 1.000000
+	n = 14, k = 41, ls = 0
+
+Iteration 42:
+	fx = 9358.455075, xnorm = 2.373692, gnorm = 0.097863, step = 1.000000
+	n = 14, k = 42, ls = 0
+
+Iteration 43:
+	fx = 9358.454956, xnorm = 2.374727, gnorm = 0.065919, step = 1.000000
+	n = 14, k = 43, ls = 0
+
+Iteration 44:
+	fx = 9358.454856, xnorm = 2.375055, gnorm = 0.063847, step = 1.000000
+	n = 14, k = 44, ls = 0
+
+Iteration 45:
+	fx = 9358.454382, xnorm = 2.380183, gnorm = 0.116805, step = 1.000000
+	n = 14, k = 45, ls = 0
+
+Iteration 46:
+	fx = 9358.453914, xnorm = 2.388324, gnorm = 0.111547, step = 1.000000
+	n = 14, k = 46, ls = 0
+
+Iteration 47:
+	fx = 9358.453269, xnorm = 2.407008, gnorm = 0.167022, step = 1.000000
+	n = 14, k = 47, ls = 0
+
+Iteration 48:
+	fx = 9358.452593, xnorm = 2.440449, gnorm = 0.248176, step = 1.000000
+	n = 14, k = 48, ls = 0
+
+Iteration 49:
+	fx = 9358.451813, xnorm = 2.449961, gnorm = 0.314507, step = 1.000000
+	n = 14, k = 49, ls = 0
+
+Iteration 50:
+	fx = 9358.450814, xnorm = 2.464477, gnorm = 0.225631, step = 1.000000
+	n = 14, k = 50, ls = 0
+
+Iteration 51:
+	fx = 9358.449330, xnorm = 2.508532, gnorm = 0.204194, step = 1.000000
+	n = 14, k = 51, ls = 0
+
+Iteration 52:
+	fx = 9358.447268, xnorm = 2.601828, gnorm = 0.475947, step = 1.000000
+	n = 14, k = 52, ls = 0
+
+Iteration 53:
+	fx = 9358.446057, xnorm = 2.655682, gnorm = 0.214548, step = 1.000000
+	n = 14, k = 53, ls = 0
+
+Iteration 54:
+	fx = 9358.445038, xnorm = 2.694623, gnorm = 0.199912, step = 1.000000
+	n = 14, k = 54, ls = 0
+
+Iteration 55:
+	fx = 9358.442771, xnorm = 2.783071, gnorm = 0.335528, step = 1.000000
+	n = 14, k = 55, ls = 0
+
+Iteration 56:
+	fx = 9358.439611, xnorm = 2.946920, gnorm = 0.700116, step = 1.000000
+	n = 14, k = 56, ls = 0
+
+Iteration 57:
+	fx = 9358.436370, xnorm = 3.173466, gnorm = 0.500372, step = 1.000000
+	n = 14, k = 57, ls = 0
+
+Iteration 58:
+	fx = 9358.433743, xnorm = 3.241551, gnorm = 0.333335, step = 1.000000
+	n = 14, k = 58, ls = 0
+
+Iteration 59:
+	fx = 9358.431355, xnorm = 3.352532, gnorm = 0.266027, step = 1.000000
+	n = 14, k = 59, ls = 0
+
+Iteration 60:
+	fx = 9358.429629, xnorm = 3.463553, gnorm = 0.256489, step = 1.000000
+	n = 14, k = 60, ls = 0
+
+Iteration 61:
+	fx = 9358.426963, xnorm = 3.714554, gnorm = 0.668154, step = 1.000000
+	n = 14, k = 61, ls = 0
+
+Iteration 62:
+	fx = 9358.424178, xnorm = 3.889592, gnorm = 0.368838, step = 1.000000
+	n = 14, k = 62, ls = 0
+
+Iteration 63:
+	fx = 9358.421640, xnorm = 4.090945, gnorm = 0.249919, step = 1.000000
+	n = 14, k = 63, ls = 0
+
+Iteration 64:
+	fx = 9358.419823, xnorm = 4.236972, gnorm = 0.300530, step = 1.000000
+	n = 14, k = 64, ls = 0
+
+Iteration 65:
+	fx = 9358.414834, xnorm = 4.786154, gnorm = 0.443765, step = 1.000000
+	n = 14, k = 65, ls = 0
+
+Iteration 66:
+	fx = 9358.412844, xnorm = 5.075788, gnorm = 0.564581, step = 0.361233
+	n = 14, k = 66, ls = 0
+
+Iteration 67:
+	fx = 9358.410968, xnorm = 5.249212, gnorm = 0.253316, step = 1.000000
+	n = 14, k = 67, ls = 0
+
+Iteration 68:
+	fx = 9358.409914, xnorm = 5.354922, gnorm = 0.156074, step = 1.000000
+	n = 14, k = 68, ls = 0
+
+Iteration 69:
+	fx = 9358.409461, xnorm = 5.399480, gnorm = 0.124543, step = 1.000000
+	n = 14, k = 69, ls = 0
+
+Iteration 70:
+	fx = 9358.408487, xnorm = 5.600542, gnorm = 0.451272, step = 1.000000
+	n = 14, k = 70, ls = 0
+
+Iteration 71:
+	fx = 9358.407026, xnorm = 5.808253, gnorm = 0.226209, step = 1.000000
+	n = 14, k = 71, ls = 0
+
+Iteration 72:
+	fx = 9358.405316, xnorm = 6.139371, gnorm = 0.276775, step = 1.000000
+	n = 14, k = 72, ls = 0
+
+Iteration 73:
+	fx = 9358.403374, xnorm = 6.622829, gnorm = 0.290320, step = 1.000000
+	n = 14, k = 73, ls = 0
+
+Iteration 74:
+	fx = 9358.402394, xnorm = 7.602418, gnorm = 1.214045, step = 1.000000
+	n = 14, k = 74, ls = 0
+
+Iteration 75:
+	fx = 9358.399279, xnorm = 7.878965, gnorm = 0.319168, step = 1.000000
+	n = 14, k = 75, ls = 0
+
+Iteration 76:
+	fx = 9358.398697, xnorm = 7.978968, gnorm = 0.167300, step = 1.000000
+	n = 14, k = 76, ls = 0
+
+Iteration 77:
+	fx = 9358.398298, xnorm = 8.099897, gnorm = 0.216951, step = 1.000000
+	n = 14, k = 77, ls = 0
+
+Iteration 78:
+	fx = 9358.397631, xnorm = 8.275374, gnorm = 0.226048, step = 1.000000
+	n = 14, k = 78, ls = 0
+
+Iteration 79:
+	fx = 9358.396474, xnorm = 8.893494, gnorm = 0.371398, step = 1.000000
+	n = 14, k = 79, ls = 0
+
+Iteration 80:
+	fx = 9358.394871, xnorm = 9.325579, gnorm = 0.238439, step = 1.000000
+	n = 14, k = 80, ls = 0
+
+Iteration 81:
+	fx = 9358.393927, xnorm = 9.342989, gnorm = 0.141866, step = 1.000000
+	n = 14, k = 81, ls = 0
+
+Iteration 82:
+	fx = 9358.393010, xnorm = 9.451205, gnorm = 0.105372, step = 1.000000
+	n = 14, k = 82, ls = 0
+
+Iteration 83:
+	fx = 9358.392857, xnorm = 9.500358, gnorm = 0.266442, step = 0.235984
+	n = 14, k = 83, ls = 0
+
+Iteration 84:
+	fx = 9358.392527, xnorm = 9.584369, gnorm = 0.222702, step = 1.000000
+	n = 14, k = 84, ls = 0
+
+Iteration 85:
+	fx = 9358.391629, xnorm = 9.795486, gnorm = 0.136394, step = 1.000000
+	n = 14, k = 85, ls = 0
+
+Iteration 86:
+	fx = 9358.390924, xnorm = 9.974684, gnorm = 0.113217, step = 1.000000
+	n = 14, k = 86, ls = 0
+
+Iteration 87:
+	fx = 9358.390432, xnorm = 10.093704, gnorm = 0.097347, step = 1.000000
+	n = 14, k = 87, ls = 0
+
+Iteration 88:
+	fx = 9358.390219, xnorm = 10.144352, gnorm = 0.114266, step = 0.521706
+	n = 14, k = 88, ls = 0
+
+Iteration 89:
+	fx = 9358.389993, xnorm = 10.153504, gnorm = 0.068601, step = 1.000000
+	n = 14, k = 89, ls = 0
+
+Iteration 90:
+	fx = 9358.389784, xnorm = 10.166547, gnorm = 0.092832, step = 1.000000
+	n = 14, k = 90, ls = 0
+
+Iteration 91:
+	fx = 9358.389699, xnorm = 10.156294, gnorm = 0.105683, step = 0.476925
+	n = 14, k = 91, ls = 0
+
+Iteration 92:
+	fx = 9358.389593, xnorm = 10.166602, gnorm = 0.052726, step = 1.000000
+	n = 14, k = 92, ls = 0
+
+Iteration 93:
+	fx = 9358.389541, xnorm = 10.183382, gnorm = 0.050523, step = 1.000000
+	n = 14, k = 93, ls = 0
+
+Iteration 94:
+	fx = 9358.389452, xnorm = 10.220235, gnorm = 0.051202, step = 1.000000
+	n = 14, k = 94, ls = 0
+
+Iteration 95:
+	fx = 9358.389277, xnorm = 10.295384, gnorm = 0.069300, step = 1.000000
+	n = 14, k = 95, ls = 0
+
+Iteration 96:
+	fx = 9358.388934, xnorm = 10.453725, gnorm = 0.098629, step = 1.000000
+	n = 14, k = 96, ls = 0
+
+Iteration 97:
+	fx = 9358.388787, xnorm = 10.731401, gnorm = 0.188639, step = 1.000000
+	n = 14, k = 97, ls = 0
+
+Iteration 98:
+	fx = 9358.388402, xnorm = 10.748932, gnorm = 0.105622, step = 1.000000
+	n = 14, k = 98, ls = 0
+
+Iteration 99:
+	fx = 9358.388295, xnorm = 10.740193, gnorm = 0.153262, step = 1.000000
+	n = 14, k = 99, ls = 0
+
+Iteration 100:
+	fx = 9358.388181, xnorm = 10.779867, gnorm = 0.057491, step = 1.000000
+	n = 14, k = 100, ls = 0
+
+Iteration 101:
+	fx = 9358.388138, xnorm = 10.805938, gnorm = 0.062777, step = 1.000000
+	n = 14, k = 101, ls = 0
+
+Iteration 102:
+	fx = 9358.388023, xnorm = 10.867370, gnorm = 0.073686, step = 1.000000
+	n = 14, k = 102, ls = 0
+
+Iteration 103:
+	fx = 9358.387738, xnorm = 11.046108, gnorm = 0.136876, step = 1.000000
+	n = 14, k = 103, ls = 0
+
+Iteration 104:
+	fx = 9358.387535, xnorm = 11.190325, gnorm = 0.103312, step = 1.000000
+	n = 14, k = 104, ls = 0
+
+Iteration 105:
+	fx = 9358.387426, xnorm = 11.190588, gnorm = 0.058315, step = 1.000000
+	n = 14, k = 105, ls = 0
+
+Iteration 106:
+	fx = 9358.387326, xnorm = 11.205245, gnorm = 0.044267, step = 1.000000
+	n = 14, k = 106, ls = 0
+
+Iteration 107:
+	fx = 9358.387242, xnorm = 11.241394, gnorm = 0.072945, step = 1.000000
+	n = 14, k = 107, ls = 0
+
+Iteration 108:
+	fx = 9358.387038, xnorm = 11.406195, gnorm = 0.156402, step = 1.000000
+	n = 14, k = 108, ls = 0
+
+Iteration 109:
+	fx = 9358.386810, xnorm = 11.627093, gnorm = 0.254978, step = 1.000000
+	n = 14, k = 109, ls = 0
+
+Iteration 110:
+	fx = 9358.386576, xnorm = 11.673872, gnorm = 0.160936, step = 1.000000
+	n = 14, k = 110, ls = 0
+
+Iteration 111:
+	fx = 9358.386230, xnorm = 11.893812, gnorm = 0.109673, step = 1.000000
+	n = 14, k = 111, ls = 0
+
+Iteration 112:
+	fx = 9358.386056, xnorm = 12.005090, gnorm = 0.124481, step = 1.000000
+	n = 14, k = 112, ls = 0
+
+Iteration 113:
+	fx = 9358.385262, xnorm = 12.568652, gnorm = 0.171862, step = 1.000000
+	n = 14, k = 113, ls = 0
+
+Iteration 114:
+	fx = 9358.384482, xnorm = 13.143612, gnorm = 0.220774, step = 1.000000
+	n = 14, k = 114, ls = 0
+
+Iteration 115:
+	fx = 9358.383294, xnorm = 14.700079, gnorm = 0.270548, step = 1.000000
+	n = 14, k = 115, ls = 0
+
+Iteration 116:
+	fx = 9358.382863, xnorm = 15.024233, gnorm = 0.263503, step = 0.413298
+	n = 14, k = 116, ls = 0
+
+Iteration 117:
+	fx = 9358.382095, xnorm = 15.045078, gnorm = 0.221218, step = 1.000000
+	n = 14, k = 117, ls = 0
+
+Iteration 118:
+	fx = 9358.380802, xnorm = 15.731594, gnorm = 0.192406, step = 1.000000
+	n = 14, k = 118, ls = 0
+
+Iteration 119:
+	fx = 9358.379754, xnorm = 15.949389, gnorm = 0.166159, step = 1.000000
+	n = 14, k = 119, ls = 0
+
+Iteration 120:
+	fx = 9358.376932, xnorm = 17.417516, gnorm = 0.195720, step = 1.000000
+	n = 14, k = 120, ls = 0
+
+Iteration 121:
+	fx = 9358.370171, xnorm = 23.073829, gnorm = 0.279857, step = 1.000000
+	n = 14, k = 121, ls = 0
+
+Iteration 122:
+	fx = 9358.369055, xnorm = 23.601179, gnorm = 0.260636, step = 0.231028
+	n = 14, k = 122, ls = 0
+
+Iteration 123:
+	fx = 9358.367104, xnorm = 25.015703, gnorm = 0.435969, step = 1.000000
+	n = 14, k = 123, ls = 0
+
+Iteration 124:
+	fx = 9358.366324, xnorm = 25.883258, gnorm = 0.162512, step = 0.360004
+	n = 14, k = 124, ls = 0
+
+Iteration 125:
+	fx = 9358.366095, xnorm = 25.676060, gnorm = 0.129431, step = 1.000000
+	n = 14, k = 125, ls = 0
+
+Iteration 126:
+	fx = 9358.365418, xnorm = 25.747654, gnorm = 0.115680, step = 1.000000
+	n = 14, k = 126, ls = 0
+
+Iteration 127:
+	fx = 9358.363613, xnorm = 26.638771, gnorm = 0.155932, step = 1.000000
+	n = 14, k = 127, ls = 0
+
+Iteration 128:
+	fx = 9358.361862, xnorm = 29.213440, gnorm = 0.245098, step = 1.000000
+	n = 14, k = 128, ls = 0
+
+Iteration 129:
+	fx = 9358.361050, xnorm = 30.346050, gnorm = 0.120523, step = 0.382984
+	n = 14, k = 129, ls = 0
+
+Iteration 130:
+	fx = 9358.360182, xnorm = 32.598325, gnorm = 0.093634, step = 1.000000
+	n = 14, k = 130, ls = 0
+
+Iteration 131:
+	fx = 9358.360037, xnorm = 33.130355, gnorm = 0.221053, step = 0.163900
+	n = 14, k = 131, ls = 0
+
+Iteration 132:
+	fx = 9358.359574, xnorm = 34.959697, gnorm = 0.159480, step = 1.000000
+	n = 14, k = 132, ls = 0
+
+Iteration 133:
+	fx = 9358.358739, xnorm = 37.716386, gnorm = 0.261223, step = 1.000000
+	n = 14, k = 133, ls = 0
+
+Iteration 134:
+	fx = 9358.357965, xnorm = 39.052237, gnorm = 0.149331, step = 1.000000
+	n = 14, k = 134, ls = 0
+
+Iteration 135:
+	fx = 9358.357396, xnorm = 40.272299, gnorm = 0.048517, step = 1.000000
+	n = 14, k = 135, ls = 0
+
+Iteration 136:
+	fx = 9358.357299, xnorm = 40.472852, gnorm = 0.034330, step = 1.000000
+	n = 14, k = 136, ls = 0
+
+Iteration 137:
+	fx = 9358.357194, xnorm = 40.779931, gnorm = 0.036934, step = 1.000000
+	n = 14, k = 137, ls = 0
+
+Iteration 138:
+	fx = 9358.357150, xnorm = 41.195888, gnorm = 0.187811, step = 1.000000
+	n = 14, k = 138, ls = 0
+
+Iteration 139:
+	fx = 9358.357036, xnorm = 41.620564, gnorm = 0.052351, step = 1.000000
+	n = 14, k = 139, ls = 0
+
+Iteration 140:
+	fx = 9358.357003, xnorm = 41.625181, gnorm = 0.023375, step = 1.000000
+	n = 14, k = 140, ls = 0
+
+Iteration 141:
+	fx = 9358.356982, xnorm = 41.680202, gnorm = 0.026530, step = 1.000000
+	n = 14, k = 141, ls = 0
+
+Iteration 142:
+	fx = 9358.356972, xnorm = 41.786909, gnorm = 0.062975, step = 1.000000
+	n = 14, k = 142, ls = 0
+
+Iteration 143:
+	fx = 9358.356954, xnorm = 41.769721, gnorm = 0.034354, step = 1.000000
+	n = 14, k = 143, ls = 0
+
+Iteration 144:
+	fx = 9358.356933, xnorm = 41.762145, gnorm = 0.016275, step = 1.000000
+	n = 14, k = 144, ls = 0
+
+Iteration 145:
+	fx = 9358.356926, xnorm = 41.773998, gnorm = 0.016387, step = 1.000000
+	n = 14, k = 145, ls = 0
+
+Iteration 146:
+	fx = 9358.356923, xnorm = 41.780360, gnorm = 0.025056, step = 0.293095
+	n = 14, k = 146, ls = 0
+
+Iteration 147:
+	fx = 9358.356917, xnorm = 41.816477, gnorm = 0.019702, step = 1.000000
+	n = 14, k = 147, ls = 0
+
+Iteration 148:
+	fx = 9358.356910, xnorm = 41.856704, gnorm = 0.020035, step = 1.000000
+	n = 14, k = 148, ls = 0
+
+Iteration 149:
+	fx = 9358.356895, xnorm = 41.995299, gnorm = 0.014616, step = 1.000000
+	n = 14, k = 149, ls = 0
+
+Iteration 150:
+	fx = 9358.356890, xnorm = 42.053826, gnorm = 0.010574, step = 1.000000
+	n = 14, k = 150, ls = 0
+
+Iteration 151:
+	fx = 9358.356888, xnorm = 42.107952, gnorm = 0.011761, step = 1.000000
+	n = 14, k = 151, ls = 0
+
+Iteration 152:
+	fx = 9358.356886, xnorm = 42.119914, gnorm = 0.013550, step = 1.000000
+	n = 14, k = 152, ls = 0
+
+Iteration 153:
+	fx = 9358.356885, xnorm = 42.116182, gnorm = 0.008329, step = 1.000000
+	n = 14, k = 153, ls = 0
+
+Iteration 154:
+	fx = 9358.356884, xnorm = 42.120607, gnorm = 0.009241, step = 1.000000
+	n = 14, k = 154, ls = 0
+
+Iteration 155:
+	fx = 9358.356883, xnorm = 42.137805, gnorm = 0.008212, step = 1.000000
+	n = 14, k = 155, ls = 0
+
+Iteration 156:
+	fx = 9358.356882, xnorm = 42.162487, gnorm = 0.009786, step = 1.000000
+	n = 14, k = 156, ls = 0
+
+Iteration 157:
+	fx = 9358.356880, xnorm = 42.215062, gnorm = 0.019454, step = 0.385005
+	n = 14, k = 157, ls = 0
+
+Iteration 158:
+	fx = 9358.356877, xnorm = 42.269891, gnorm = 0.014980, step = 1.000000
+	n = 14, k = 158, ls = 0
+
+Iteration 159:
+	fx = 9358.356871, xnorm = 42.407613, gnorm = 0.013598, step = 1.000000
+	n = 14, k = 159, ls = 0
+
+Iteration 160:
+	fx = 9358.356867, xnorm = 42.554450, gnorm = 0.025721, step = 0.450004
+	n = 14, k = 160, ls = 0
+
+Iteration 161:
+	fx = 9358.356861, xnorm = 42.659309, gnorm = 0.018555, step = 1.000000
+	n = 14, k = 161, ls = 0
+
+Iteration 162:
+	fx = 9358.356854, xnorm = 42.813074, gnorm = 0.016844, step = 1.000000
+	n = 14, k = 162, ls = 0
+
+Iteration 163:
+	fx = 9358.356836, xnorm = 43.226065, gnorm = 0.019480, step = 1.000000
+	n = 14, k = 163, ls = 0
+
+Iteration 164:
+	fx = 9358.356812, xnorm = 43.980531, gnorm = 0.036701, step = 1.000000
+	n = 14, k = 164, ls = 0
+
+Iteration 165:
+	fx = 9358.356793, xnorm = 44.980069, gnorm = 0.028510, step = 1.000000
+	n = 14, k = 165, ls = 0
+
+Iteration 166:
+	fx = 9358.356773, xnorm = 45.311417, gnorm = 0.019765, step = 1.000000
+	n = 14, k = 166, ls = 0
+
+Iteration 167:
+	fx = 9358.356762, xnorm = 45.442782, gnorm = 0.019941, step = 1.000000
+	n = 14, k = 167, ls = 0
+
+Iteration 168:
+	fx = 9358.356757, xnorm = 46.044723, gnorm = 0.091843, step = 1.000000
+	n = 14, k = 168, ls = 0
+
+Iteration 169:
+	fx = 9358.356738, xnorm = 46.086271, gnorm = 0.024262, step = 1.000000
+	n = 14, k = 169, ls = 0
+
+Iteration 170:
+	fx = 9358.356730, xnorm = 46.317157, gnorm = 0.019731, step = 1.000000
+	n = 14, k = 170, ls = 0
+
+Iteration 171:
+	fx = 9358.356719, xnorm = 46.841798, gnorm = 0.040259, step = 1.000000
+	n = 14, k = 171, ls = 0
+
+Iteration 172:
+	fx = 9358.356705, xnorm = 47.560533, gnorm = 0.046026, step = 1.000000
+	n = 14, k = 172, ls = 0
+
+Iteration 173:
+	fx = 9358.356664, xnorm = 49.553525, gnorm = 0.061179, step = 1.000000
+	n = 14, k = 173, ls = 0
+
+Iteration 174:
+	fx = 9358.356659, xnorm = 53.260067, gnorm = 0.059750, step = 1.000000
+	n = 14, k = 174, ls = 0
+
+Iteration 175:
+	fx = 9358.356629, xnorm = 53.176074, gnorm = 0.039278, step = 1.000000
+	n = 14, k = 175, ls = 0
+
+Iteration 176:
+	fx = 9358.356616, xnorm = 52.647305, gnorm = 0.022642, step = 1.000000
+	n = 14, k = 176, ls = 0
+
+Iteration 177:
+	fx = 9358.356603, xnorm = 52.463465, gnorm = 0.018481, step = 1.000000
+	n = 14, k = 177, ls = 0
+
+Iteration 178:
+	fx = 9358.356600, xnorm = 52.750991, gnorm = 0.114883, step = 1.000000
+	n = 14, k = 178, ls = 0
+
+Iteration 179:
+	fx = 9358.356569, xnorm = 53.465430, gnorm = 0.030015, step = 1.000000
+	n = 14, k = 179, ls = 0
+
+Iteration 180:
+	fx = 9358.356558, xnorm = 54.424272, gnorm = 0.021073, step = 1.000000
+	n = 14, k = 180, ls = 0
+
+Iteration 181:
+	fx = 9358.356549, xnorm = 55.680232, gnorm = 0.022575, step = 1.000000
+	n = 14, k = 181, ls = 0
+
+Iteration 182:
+	fx = 9358.356536, xnorm = 56.858424, gnorm = 0.020924, step = 1.000000
+	n = 14, k = 182, ls = 0
+
+Iteration 183:
+	fx = 9358.356524, xnorm = 57.867937, gnorm = 0.021393, step = 0.407558
+	n = 14, k = 183, ls = 0
+
+Iteration 184:
+	fx = 9358.356512, xnorm = 59.924236, gnorm = 0.017244, step = 1.000000
+	n = 14, k = 184, ls = 0
+
+Iteration 185:
+	fx = 9358.356509, xnorm = 59.392039, gnorm = 0.010546, step = 1.000000
+	n = 14, k = 185, ls = 0
+
+Iteration 186:
+	fx = 9358.356508, xnorm = 59.328760, gnorm = 0.010730, step = 1.000000
+	n = 14, k = 186, ls = 0
+
+Iteration 187:
+	fx = 9358.356506, xnorm = 59.447096, gnorm = 0.007895, step = 1.000000
+	n = 14, k = 187, ls = 0
+
+Iteration 188:
+	fx = 9358.356503, xnorm = 60.059640, gnorm = 0.013956, step = 1.000000
+	n = 14, k = 188, ls = 0
+
+Iteration 189:
+	fx = 9358.356497, xnorm = 61.476483, gnorm = 0.013173, step = 1.000000
+	n = 14, k = 189, ls = 0
+
+Iteration 190:
+	fx = 9358.356491, xnorm = 63.285287, gnorm = 0.011211, step = 1.000000
+	n = 14, k = 190, ls = 0
+
+Iteration 191:
+	fx = 9358.356484, xnorm = 65.441319, gnorm = 0.017854, step = 1.000000
+	n = 14, k = 191, ls = 0
+
+Iteration 192:
+	fx = 9358.356482, xnorm = 66.335456, gnorm = 0.006914, step = 1.000000
+	n = 14, k = 192, ls = 0
+
+Iteration 193:
+	fx = 9358.356481, xnorm = 66.194480, gnorm = 0.003949, step = 1.000000
+	n = 14, k = 193, ls = 0
+
+Iteration 194:
+	fx = 9358.356481, xnorm = 66.067592, gnorm = 0.005395, step = 1.000000
+	n = 14, k = 194, ls = 0
+
+Iteration 195:
+	fx = 9358.356481, xnorm = 66.138985, gnorm = 0.004198, step = 1.000000
+	n = 14, k = 195, ls = 0
+
+Iteration 196:
+	fx = 9358.356480, xnorm = 66.256718, gnorm = 0.002615, step = 1.000000
+	n = 14, k = 196, ls = 0
+
+Iteration 197:
+	fx = 9358.356480, xnorm = 66.554135, gnorm = 0.002993, step = 1.000000
+	n = 14, k = 197, ls = 0
+
+Iteration 198:
+	fx = 9358.356480, xnorm = 66.709781, gnorm = 0.003934, step = 1.000000
+	n = 14, k = 198, ls = 0
+
+Iteration 199:
+	fx = 9358.356479, xnorm = 67.162639, gnorm = 0.006065, step = 1.000000
+	n = 14, k = 199, ls = 0
+
+Iteration 200:
+	fx = 9358.356479, xnorm = 67.623120, gnorm = 0.006888, step = 1.000000
+	n = 14, k = 200, ls = 0
+
+Iteration 201:
+	fx = 9358.356478, xnorm = 68.509443, gnorm = 0.012083, step = 1.000000
+	n = 14, k = 201, ls = 0
+
+Iteration 202:
+	fx = 9358.356478, xnorm = 68.650001, gnorm = 0.005396, step = 1.000000
+	n = 14, k = 202, ls = 0
+
+Iteration 203:
+	fx = 9358.356477, xnorm = 68.977034, gnorm = 0.003811, step = 1.000000
+	n = 14, k = 203, ls = 0
+
+Iteration 204:
+	fx = 9358.356476, xnorm = 70.356739, gnorm = 0.008256, step = 1.000000
+	n = 14, k = 204, ls = 0
+
+Iteration 205:
+	fx = 9358.356476, xnorm = 71.767550, gnorm = 0.007350, step = 1.000000
+	n = 14, k = 205, ls = 0
+
+Iteration 206:
+	fx = 9358.356475, xnorm = 72.988156, gnorm = 0.004334, step = 1.000000
+	n = 14, k = 206, ls = 0
+
+Iteration 207:
+	fx = 9358.356474, xnorm = 73.990080, gnorm = 0.002852, step = 1.000000
+	n = 14, k = 207, ls = 0
+
+Iteration 208:
+	fx = 9358.356474, xnorm = 75.117361, gnorm = 0.003658, step = 1.000000
+	n = 14, k = 208, ls = 0
+
+Iteration 209:
+	fx = 9358.356473, xnorm = 76.765173, gnorm = 0.004454, step = 1.000000
+	n = 14, k = 209, ls = 0
+
+Iteration 210:
+	fx = 9358.356473, xnorm = 77.458242, gnorm = 0.005556, step = 0.228000
+	n = 14, k = 210, ls = 0
+
+Iteration 211:
+	fx = 9358.356473, xnorm = 78.255332, gnorm = 0.002322, step = 1.000000
+	n = 14, k = 211, ls = 0
+
+Iteration 212:
+	fx = 9358.356473, xnorm = 78.448953, gnorm = 0.001963, step = 1.000000
+	n = 14, k = 212, ls = 0
+
+Iteration 213:
+	fx = 9358.356473, xnorm = 79.326429, gnorm = 0.009178, step = 1.000000
+	n = 14, k = 213, ls = 0
+
+Iteration 214:
+	fx = 9358.356472, xnorm = 79.246905, gnorm = 0.004476, step = 1.000000
+	n = 14, k = 214, ls = 0
+
+Iteration 215:
+	fx = 9358.356472, xnorm = 79.582078, gnorm = 0.001761, step = 1.000000
+	n = 14, k = 215, ls = 0
+
+Iteration 216:
+	fx = 9358.356472, xnorm = 80.238350, gnorm = 0.002197, step = 1.000000
+	n = 14, k = 216, ls = 0
+
+Iteration 217:
+	fx = 9358.356472, xnorm = 80.895916, gnorm = 0.001204, step = 1.000000
+	n = 14, k = 217, ls = 0
+
+Iteration 218:
+	fx = 9358.356472, xnorm = 81.526525, gnorm = 0.001268, step = 1.000000
+	n = 14, k = 218, ls = 0
+
+Iteration 219:
+	fx = 9358.356472, xnorm = 82.123874, gnorm = 0.003483, step = 1.000000
+	n = 14, k = 219, ls = 0
+
+Iteration 220:
+	fx = 9358.356472, xnorm = 82.401111, gnorm = 0.003108, step = 1.000000
+	n = 14, k = 220, ls = 0
+
+Iteration 221:
+	fx = 9358.356472, xnorm = 84.048441, gnorm = 0.003550, step = 1.000000
+	n = 14, k = 221, ls = 0
+
+Iteration 222:
+	fx = 9358.356472, xnorm = 84.456379, gnorm = 0.001140, step = 0.223520
+	n = 14, k = 222, ls = 0
+
+Iteration 223:
+	fx = 9358.356472, xnorm = 83.890178, gnorm = 0.000819, step = 1.000000
+	n = 14, k = 223, ls = 0
+
+X: [ 13.489821569636005, 13.686182558807564, -0.5566826629478914, 0.43471616409923586, -0.33334491250003784, 0.06664398556321324, -46.90965235056783, -1.3317841028727246, -12.133354030981458, 0.26015465053654196, -0.6020654553243199, -0.06261359925084012, -46.866926737248576, 46.0566001447514]
+Gradient: [ 1.1880045778558195E-5, 3.487063806440823E-4, -3.021682710775111E-4, 1.7139047184291605E-4, -4.749263882859074E-5, -1.29273590773175E-4, -1.3796334260307577E-4, 8.740133779229508E-5, 3.610278268576557E-4, -2.0795504031001814E-4, -5.64337674551968E-5, -1.4496418193553673E-4, -2.2754180056390542E-4, -3.655051431669812E-4]
+Gradient type: analytic
+Fx: 9358.356471682491
+Time: 15.712s
+Count: 242
+
