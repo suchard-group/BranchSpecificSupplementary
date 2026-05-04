@@ -193,7 +193,7 @@ The following commands will compile the `hmc-clock` branch of BEAST.
 ```
 git clone -b hmc-clock https://github.com/beast-dev/beast-mcmc.git
 cd beast-mcmc
-git checkout e6efe7e865a25cd2d28cc6ad8553e662315a4836
+git checkout 9899f203d8d43fab1b4242420c0f6f508a088aec
 ant
 ```
 

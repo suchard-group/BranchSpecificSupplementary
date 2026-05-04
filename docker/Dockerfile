@@ -6,7 +6,7 @@ ENV ANT_OPTS=-Dfile.encoding=UTF8
 RUN apt-get update && apt-get -y install cmake git gcc g++ openjdk-11-jdk ant
 RUN git clone -b hmc-clock --depth 1 https://github.com/beast-dev/beast-mcmc.git && \
 cd beast-mcmc && \
-git checkout e6efe7e865a25cd2d28cc6ad8553e662315a4836 && \
+git checkout 9899f203d8d43fab1b4242420c0f6f508a088aec && \
 ant
 RUN cd /app && \
 git clone -b hmc-clock --depth 1 https://github.com/beagle-dev/beagle-lib.git && \
